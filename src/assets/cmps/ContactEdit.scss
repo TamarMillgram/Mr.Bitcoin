@@ -1,0 +1,67 @@
+.contact-edit {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 2em;
+    justify-content: center;
+    align-items: center;
+
+
+        .input {
+            margin: 1em;
+            width: 100%;
+            max-width: 400px;
+            height: 45px;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1.5px solid lightgrey;
+            outline: none;
+            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            box-shadow: 0px 0px 20px -18px;
+            &:hover {
+              border: 2px solid lightgrey;
+              box-shadow: 0px 0px 20px -17px;
+            }
+            
+            &:active {
+              transform: scale(0.95);
+            }
+            
+            &:focus {
+              border: 2px solid grey;
+            }
+          }
+          
+    
+    
+    button {
+        background-color: #fff;
+        border: 1px solid #d5d9d9;
+        border-radius: 8px;
+        box-shadow: rgba(160, 163, 163, 0.5) 0 2px 5px 0;
+        box-sizing: border-box;
+        color: #0a0a0a;
+        cursor: pointer;
+        display: inline-block;
+        font-family: "Amazon Ember",sans-serif;
+        font-size: 13px;
+        line-height: 29px;
+        padding: 0 10px 0 11px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: middle;
+        width: 100px;
+        &:hover {
+          background-color: #f7fafa;
+        }
+        
+        &:focus {
+          border-color: #008296;
+          box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+          outline: 0;
+        }
+    }
+}

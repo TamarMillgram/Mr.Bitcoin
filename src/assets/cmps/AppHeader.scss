@@ -1,0 +1,46 @@
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 3.5em;
+    padding-inline: 1em;
+
+    background-color: #f8be1ee9;
+
+    .title{
+        font-weight: 550;
+        color: rgb(7, 7, 7);
+        height: 3.5em;
+    }
+
+    .main-nav{
+        height: 100%;
+        display: flex;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+
+            color: rgb(75, 74, 74);
+            text-decoration: none;
+
+            border-block-end: 3px solid transparent ;
+            transition: 0.2s;
+        
+    
+            @media (hover: hover) {
+               &:hover {
+                border-block-end: 3px solid  rgb(75, 74, 74) ;
+               }
+             }
+
+             &.router-link-active {
+                border-block-end: 3px solid rgb(75, 74, 74);
+            }
+    
+        }
+    }
+}
