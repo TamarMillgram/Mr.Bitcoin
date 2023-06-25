@@ -1,32 +1,35 @@
 <template>
   <article v-if="contact" class="contact-details">
+    <img
+      class="robo-img"
+      :src="`https://robohash.org/${contact._id}?set=set1&size=200x200`"
+      :alt="contact.name"
+    />
     <div class="details">
-      <h2>{{contact.name}}</h2>
-      <h4>{{contact.phone}}</h4>
-      <h4>{{contact.email}}</h4>
-    </div>
+      <h2>{{ contact.name }}</h2>
+      <h4>{{ contact.phone }}</h4>
+      <h4>{{ contact.email }}</h4>
       <RouterLink to="/contacts">
-          <button class="back-btn">Back</button>
+        <button class="back-btn">Back</button>
       </RouterLink>
+    </div>
   </article>
 </template>
 
 <script>
-import { contactService } from '@/services/contactService'
+import { contactService } from "@/services/contactService";
 
 export default {
   data() {
-      return {
-          contact: null,
-      }
+    return {
+      contact: null,
+    };
   },
   async created() {
-      const contactId = this.$route.params.id
-      this.contact = await contactService.get(contactId)  
-  }
-}
+    const contactId = this.$route.params.id;
+    this.contact = await contactService.get(contactId);
+  },
+};
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

@@ -1,9 +1,9 @@
-@import './cmps/ContactIndex';
+@import './views/ContactIndex.scss';
 @import './cmps/AppHeader';
 @import './cmps/AppFooter';
 @import './cmps/ContactList';
 @import './cmps/ContactPreview';
-@import './cmps/ContactDetails';
-@import './cmps/ContactEdit';
+@import './views/ContactDetails';
+@import './views/ContactEdit.scss';
 @import './cmps/ContactFilter';
 @import './cmps/UserMsg';

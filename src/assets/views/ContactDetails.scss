@@ -1,0 +1,64 @@
+.contact-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-block-start: 2em;
+  padding: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  max-width: 500px;
+  height: 200px;
+  gap: 3em;
+
+  img {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    bottom: 2em;
+    border-radius: 2em;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-weight: 600;
+    }
+  }
+
+
+  .back-btn {
+    margin-block-start: 1em;
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(160, 163, 163, 0.5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0a0a0a;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amazon Ember", sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    padding: 0 10px 0 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 100px;
+
+    &:hover {
+      background-color: #f7fafa;
+    }
+
+    &:focus {
+      border-color: #008296;
+      box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+      outline: 0;
+    }
+  }
+}
