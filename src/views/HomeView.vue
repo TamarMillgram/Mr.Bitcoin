@@ -8,18 +8,20 @@
     <div>
       <h1>{{ this.user.name }}</h1>
       <h3>
-        Balance: <span>{{ this.user.balance }}$</span>
+        Bitcoins: <span>{{ this.user.balance }}</span>
       </h3>
       <h4>
         Bitcoin Rate: <span>{{ this.rate }}</span>
       </h4>
     </div>
   </main>
+  <TransactionsList />
 </template>
 
 <script>
 import { userService } from "../services/userService";
 import { bitcoinService } from "../services/bitcoinService";
+import TransactionsList from "../cmps/TransactionList.vue";
 export default {
   data() {
     return {
@@ -27,9 +29,12 @@ export default {
       rate: null,
     };
   },
-  created() {
-    this.user = userService.getUser();
-    this.rate = bitcoinService.getRate();
+  async created() {
+    this.user = userService.getLoggedInUser();
+    this.rate = await bitcoinService.getRate();
+  },
+  components: {
+    TransactionsList,
   },
 };
 </script>

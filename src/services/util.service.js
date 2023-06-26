@@ -7,7 +7,8 @@ export const utilService = {
     padNum,
     getDayName,
     getMonthName,
-    formatDate
+    formatDate,
+    clearStorage
 }
 
 function makeId(length = 6) {
@@ -71,4 +72,8 @@ function formatDate(timestamp, locale) {
         year: 'numeric',
     };
     return date.toLocaleDateString(locale, options);
+}
+
+function clearStorage(key) {
+    localStorage.removeItem(key)
 }

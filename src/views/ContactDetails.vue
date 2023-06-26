@@ -14,12 +14,17 @@
       </RouterLink>
     </div>
   </article>
+  <TransferFunds />
+  <TransactionsList />
 </template>
 
 <script>
 import { contactService } from "@/services/contactService";
+import TransferFunds from "../cmps/TransferFunds.vue";
+import TransactionsList from "../cmps/TransactionList.vue";
 
 export default {
+  components: { TransferFunds, TransactionsList },
   data() {
     return {
       contact: null,
