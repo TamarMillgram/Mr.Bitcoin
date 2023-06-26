@@ -1,7 +1,7 @@
 <template>
   <header class="app-header">
     <RouterLink class="gray" to="/"
-      ><img class="title" :src="imgUrl" alt=""
+      ><img class="title" :src="imgUrl" alt="logo"
     /></RouterLink>
     <nav class="main-nav">
       <RouterLink class="gray" to="/">Home</RouterLink>
@@ -15,7 +15,8 @@
 export default {
   data() {
     return {
-      imgUrl: "src/assets/img/bitcoin-logo.png",
+      imgUrl: "public/bitcoin-logo.png",
+      // imgUrl: "src/assets/img/bitcoin-logo.png",
     };
   },
 };

@@ -41,7 +41,6 @@ async function getMarketPriceHistory() {
     const lastRequest = gBitcoinData?.priceHistory?.reqTimeStamp
 
     if (priceHistory && Date.now() - lastRequest < CACHE_TIME) {
-        console.log('priceHistory.data:', priceHistory.data)
 
         return priceHistory.data
     } else {

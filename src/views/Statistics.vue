@@ -1,6 +1,5 @@
 <template>
   <div class="charts">
-    <!-- <h1>Stats</h1> -->
     <div v-if="priceHistory && avgBlockSize">
       <LineChart :chartData="priceHistoryData" />
       <LineChart :chartData="avgBlockSizeData" />
@@ -18,9 +17,6 @@ export default {
       priceHistory: null,
       avgBlockSize: null,
     };
-  },
-  components: {
-    LineChart,
   },
   async created() {
     this.priceHistory = await bitcoinService.getMarketPriceHistory();
