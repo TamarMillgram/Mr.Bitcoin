@@ -46,7 +46,7 @@ async function getMarketPriceHistory() {
     } else {
         try {
             const response = await axios.get(
-                'https://api.blockchain.info/charts/market-price?timespan=12months&format=json&cors=true'
+                'https://api.blockchain.info/charts/market-price?timespan=2months&format=json&cors=true'
             )
             console.log('response:', response)
 
@@ -72,7 +72,7 @@ async function getAvgBlockSize() {
     } else {
         try {
             const response = await axios.get(
-                'https://api.blockchain.info/charts/avg-block-size?timespan=12months&format=json&cors=true'
+                'https://api.blockchain.info/charts/avg-block-size?timespan=2months&format=json&cors=true'
             )
             gBitcoinData.avgBlockSize = {
                 data: response.data,

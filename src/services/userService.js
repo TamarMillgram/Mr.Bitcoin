@@ -1,5 +1,8 @@
+const USER_DB = 'USER_DB'
+
 export const userService = {
     getUser,
+    signup
 }
 const user = {
     name: "Puki Ben David",
@@ -7,6 +10,10 @@ const user = {
     transactions: []
 }
 
-function getUser(){
+function getUser() {
     return user
+}
+
+function signup() {
+
 }
