@@ -160,7 +160,7 @@ function remove(id) {
     return new Promise((resolve, reject) => {
         const index = contacts.findIndex(contact => contact._id === id)
         if (index !== -1) {
-            contacts.splice(index, 1)
+            // contacts.splice(index, 1)
         }
 
         resolve(contacts)

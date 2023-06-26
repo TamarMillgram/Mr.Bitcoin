@@ -16,18 +16,16 @@
 </template>
 
 <script>
-import { contactService } from "../services/contactService";
 import { eventBus } from "../services/eventBus.service";
+import { bitcoinService } from "../services/bitcoinService";
 
 import ContactList from "../cmps/ContactList.vue";
 import ContactFilter from "../cmps/ContactFilter.vue";
 import UserMsg from "../cmps/UserMsg.vue";
-import { bitcoinService } from "../services/bitcoinService";
 
 export default {
   data() {
     return {
-      contacts: null,
       filterBy: {},
       priceHistory: null,
       avgBlockSize: null,
@@ -35,19 +33,22 @@ export default {
   },
   methods: {
     async removeContact(contactId) {
-      const contact = await contactService.get(contactId);
-      const msg = {
-        txt: `The contact ${contact.name} removed...`,
-        type: "success",
-        timeout: 2500,
-      };
-      await contactService.remove(contactId);
-
-      const idx = this.contacts.findIndex(
-        (contact) => contact.id === contactId
-      );
-      this.contacts.splice(idx, 1);
-      eventBus.emit("user-msg", msg);
+      try {
+        this.$store.dispatch({ type: "removeContact", contactId });
+        const msg = {
+          txt: `The contact removed...`,
+          type: "success",
+          timeout: 2500,
+        };
+        eventBus.emit("user-msg", msg);
+      } catch (err) {
+        const msg = {
+          txt: `The contact cannot be removed...`,
+          type: "fail",
+          timeout: 2500,
+        };
+        eventBus.emit("user-msg", msg);
+      }
     },
     onSetFilterBy(filterBy) {
       this.filterBy = filterBy;
@@ -60,15 +61,13 @@ export default {
         regex.test(contact[this.filterBy.criteria])
       );
     },
-    getContacts() {
-      return this.contacts;
+    contacts() {
+      return this.$store.getters.contacts;
     },
   },
   async created() {
-    this.contacts = await contactService.query();
+    this.$store.dispatch({ type: "loadContacts" });
     this.rate = bitcoinService.getRate();
-    this.priceHistory = bitcoinService.getMarketPriceHistory();
-    this.avgBlockSize = bitcoinService.getAvgBlockSize();
   },
   components: {
     ContactList,
