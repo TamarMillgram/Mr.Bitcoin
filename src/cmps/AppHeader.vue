@@ -15,7 +15,7 @@
 export default {
   data() {
     return {
-      imgUrl: "public/imgs/bitcoin-logo.png",
+      imgUrl: "imgs/bitcoin-logo.png",
     };
   },
 };
